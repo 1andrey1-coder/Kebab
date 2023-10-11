@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Kebab"
+
+             x:Class="Kebab.MainShell"
+       
+        BackgroundColor="#455A64"
+       ForegroundColor="White"
+       TitleColor="White"
+       DisabledColor="#B4FFFFFF"
+       UnselectedColor="#95FFFFFF">
+
+
+
+    <FlyoutItem Title="Ингридиенты и цена"
+                Icon="ingridico.jpg">
+
+        <ShellContent Title="Ингредиенты"
+                          Icon="ingridico.jpg"
+                          Route="ingred" ContentTemplate="{DataTemplate local:Ingredient}"/>
+        
+            <ShellContent Title="Цена" Route="cost" ContentTemplate="{DataTemplate local:Cost}"/>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Эльпримо в масле">
+        
+        <ShellContent Title="Эльпримо"
+                      Icon="fistingico.jpg"
+                      Route="primo" ContentTemplate="{DataTemplate local:Primo}"/>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Влажные мужики">
+        <ShellContent Title="Влажные"
+                      Icon="manico.jpg"
+                      Route="man" ContentTemplate="{DataTemplate local:Man}"/>
+        
+    </FlyoutItem>
+
+    <TabBar>
+       
+            <ShellContent Title="Пробка"
+                    Icon="ingridico.jpg"
+                    Route="ingred" ContentTemplate="{DataTemplate local:Ingredient}"/>
+
+            <ShellContent Title="Цена" Route="cost" ContentTemplate="{DataTemplate local:Cost}"/>
+        
+    </TabBar>
+    
+    <Tab>
+
+        <ShellContent Title="Пупсик" Route="pupsik" ContentTemplate="{DataTemplate local:Pupsik}"/>
+
+    </Tab>
+
+    <MenuItem
+        Text="Help me cum"
+        />
+</Shell>
