@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Kebab
+namespace Kebab.XAML
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Man : ContentPage
@@ -15,6 +15,16 @@ namespace Kebab
         public Man()
         {
             InitializeComponent();
+        }
+
+        private void SaveMan(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteMan(object sender, EventArgs e)
+        {
+
         }
     }
 }

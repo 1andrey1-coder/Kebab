@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              
+             x:Class="Kebab.XAML.AddProduct">
+
+
+
+    <ContentPage.Content>
+        <StackLayout>
+         
+             <StackLayout x:Name="ProductsCollection">
+                 <Label Text="Название" Margin="4" FontAttributes="Bold"/>
+                     <Entry x:Name="NameField" Text="{Binding Name}" />
+                     <Label Text="Описание" Margin="4" FontAttributes="Bold"/>
+                     <Editor x:Name="TitleField" Text="{Binding Title}" HeightRequest="100" />
+
+                     <Label Text="Сcылка на изображение" Margin="4" FontAttributes="Bold"/>
+                     <Editor x:Name="ImageField" Text="{Binding Image}" Placeholder="https://..."  />
+                     <Button Text="Сохранить" Clicked="SaveProduct" />
+                     <Button Text="Удалить" Clicked="DeleteProduct" />
+             </StackLayout>
+               
+              
+            <!--  <ScrollView>
+                <StackLayout x:Name="ProductsCollection">
+
+
+                    <Label Text="Название" Margin="4" FontAttributes="Bold"/>
+                    <Entry x:Name="NameField" Text="{Binding Name}" />
+
+                     <Label Text="Артикль" Margin="4" FontAttributes="Bold"/>
+                    <Entry x:Name="ArticleField" Text="{Binding Article}"/>
+
+                    <Label Text="Описание" Margin="4" FontAttributes="Bold"/>
+                    <Editor x:Name="TitleField" Text="{Binding Title}" HeightRequest="100" />
+
+                    <Label Text="Сcылка на изображение" Margin="4" FontAttributes="Bold"/>
+                    <Editor x:Name="ImageField" Text="{Binding Image}" Placeholder="https://..."  />
+
+                   <Label Text="Категория" Margin="4" FontAttributes="Bold"/>
+                    <Picker x:Name="CategoryField"  
+                            Title="Нажмите чтобы добавить категорию" ItemsSource="{Binding Category}" 
+                            ItemDisplayBinding="{Binding CategorySvoy}"/>
+                    
+        
+                    
+                    <Button Text="Сохранить" Clicked="SaveProduct" />
+                    <Button Text="Удалить" Clicked="DeleteProduct" />
+
+                </StackLayout>
+            </ScrollView>-->
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

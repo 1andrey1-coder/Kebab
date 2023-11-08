@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Kebab.XAML;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace Kebab
+namespace Kebab.XAML
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Cost : ContentPage
+    public partial class MainShell : Shell
     {
-        public Cost()
+        public MainShell()
         {
+
             InitializeComponent();
+            //Routing.RegisterRoute("",typeof(MainShell));
         }
+        
     }
 }

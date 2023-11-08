@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kebab.Android", "Kebab.Andr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kebab.iOS", "Kebab.iOS\Kebab.iOS.csproj", "{EFA806A9-A103-4AEE-BDD5-294ABC7FE351}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kebab", "Kebab\Kebab.csproj", "{CF5196CA-96E7-4FCC-AFC3-E48B22E72E26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kebab", "Kebab\Kebab.csproj", "{CF5196CA-96E7-4FCC-AFC3-E48B22E72E26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

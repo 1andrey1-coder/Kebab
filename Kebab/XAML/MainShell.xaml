@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Kebab"
+             xmlns:local="clr-namespace:Kebab.XAML"
 
-             x:Class="Kebab.MainShell"
+             x:Class="Kebab.XAML.MainShell"
        
         BackgroundColor="#455A64"
        ForegroundColor="White"
@@ -13,31 +13,31 @@
 
 
 
-    <FlyoutItem Title="Ингридиенты и цена"
+    <FlyoutItem Title="Управление продуктами"
                 Icon="ingridico.jpg">
 
-        <ShellContent Title="Ингредиенты"
+        <ShellContent Title="Добавление"
                           Icon="ingridico.jpg"
-                          Route="ingred" ContentTemplate="{DataTemplate local:Ingredient}"/>
+                          Route="ingred" ContentTemplate="{DataTemplate local:AddProduct}"/>
         
-            <ShellContent Title="Цена" Route="cost" ContentTemplate="{DataTemplate local:Cost}"/>
+            
     </FlyoutItem>
     
-    <FlyoutItem Title="Эльпримо в масле">
+    <FlyoutItem Title="Список продуктов">
         
-        <ShellContent Title="Эльпримо"
+        <ShellContent Title="Продукт"
                       Icon="fistingico.jpg"
-                      Route="primo" ContentTemplate="{DataTemplate local:Primo}"/>
+                      Route="primo" ContentTemplate="{DataTemplate local:ProductsPage}"/>
     </FlyoutItem>
     
-    <FlyoutItem Title="Влажные мужики">
+    <FlyoutItem Title="Добавление категорий влажных мужиков">
         <ShellContent Title="Влажные"
                       Icon="manico.jpg"
                       Route="man" ContentTemplate="{DataTemplate local:Man}"/>
         
     </FlyoutItem>
 
-    <TabBar>
+   <!-- <TabBar>
        
             <ShellContent Title="Пробка"
                     Icon="ingridico.jpg"
@@ -45,13 +45,9 @@
 
             <ShellContent Title="Цена" Route="cost" ContentTemplate="{DataTemplate local:Cost}"/>
         
-    </TabBar>
+    </TabBar>-->
     
-    <Tab>
-
-        <ShellContent Title="Пупсик" Route="pupsik" ContentTemplate="{DataTemplate local:Pupsik}"/>
-
-    </Tab>
+   
 
     <MenuItem
         Text="Help me cum"

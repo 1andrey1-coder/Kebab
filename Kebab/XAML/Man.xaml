@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kebab.XAML.Man">
+    <ContentPage.Content>
+               <ScrollView>
+                   <StackLayout x:Name="ProductsCollection">
+
+                        <Label Text="Вы во влажном мужике" HorizontalOptions="Center" Margin="4" FontAttributes="Bold"/>
+                        <Label Text="Название категории" Margin="4" FontAttributes="Bold"/>
+                        <Entry x:Name="CategorySvoyField" Placeholder="min 20 words"  />
+
+                       <Button Text="Сохранить" Clicked="SaveMan" />
+                       <Button Text="Удалить" Clicked="DeleteMan" />
+            </StackLayout>
+                 
+               </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
