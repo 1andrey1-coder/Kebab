@@ -28,6 +28,7 @@ namespace Kebab.XAML
         private void RedactorClick(object sender, EventArgs e)
         {
 
+
         }
 
         private void DeleteClick(object sender, EventArgs e)
