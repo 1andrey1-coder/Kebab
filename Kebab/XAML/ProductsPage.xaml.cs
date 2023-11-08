@@ -19,6 +19,7 @@ namespace Kebab.XAML
             InitializeComponent();
         }
 
+
         protected override void OnAppearing()
         {
             List = App.Db.Products.ToList();
