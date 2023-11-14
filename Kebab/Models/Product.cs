@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using Xamarin.Forms;
-namespace Kebab
+namespace Kebab.Models
 {
-    
+
     public partial class Product
     {
-        
+
         public int id { get; set; }
         public string Name { get; set; }
         public string Title { get; set; }

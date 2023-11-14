@@ -1,4 +1,4 @@
-﻿namespace Kebab
+﻿namespace Kebab.Tools
 {
     public interface IDBPath
     {

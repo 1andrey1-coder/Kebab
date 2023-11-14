@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Kebab.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
@@ -75,7 +75,10 @@ namespace Kebab.XAML
         private void DeleteProduct(object sender, EventArgs e)
         {
 
-
+            App.Db.Remove(NameField.Text);
+            App.Db.Remove(ImageField.Text);
+            App.Db.Remove(TitleField.Text);
+            App.Db.SaveChanges();
             //var product = (Product)BindingContext;
             //App.Db.Products.Remove(product);
             //App.Db.SaveChanges();

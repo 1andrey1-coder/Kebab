@@ -2,40 +2,48 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Kebab.XAML.ProductsPage">
- <ContentPage.Content>
-    <StackLayout>
+ <ContentPage.Content >
+        <StackLayout BackgroundColor="#818FB4">
 
 
         <CollectionView  SelectedItem="{Binding SelectedItem}"
-                         ItemsSource="{Binding List}" SelectionMode="Multiple">
+                         ItemsSource="{Binding List}" SelectionMode="Single">
                 <CollectionView.ItemTemplate >
                 <DataTemplate>
-                    <StackLayout>
+                    <StackLayout Padding="8">
                             <StackLayout Orientation="Horizontal">
-                                <StackLayout WidthRequest="150">
-                                    
-                                    <Label Text="Название: " FontFamily="Times New Roman"/>
-                                    <Label Text="{Binding Name}" Margin="0,-5,0,0"/>
-                                    <Image Source="{Binding Image}"/>
-                                    <StackLayout WidthRequest="150">
-                                        <Label Text="Категория: " />
-                                        <Label Text="{Binding Category}" /> 
-                                    </StackLayout>
-                                </StackLayout>
+                               
                               
                                 <StackLayout>
-                                    <Label Text="Описание:"/>
+                                    <Label Text="Название: " FontAttributes="Bold"/>
+                                    <Label Text="{Binding Name}" Margin="0,-5,0,0"/>
+                                    
+                                    <Label Text="Описание:"  FontAttributes="Bold"/>
                                     <Label Text="{Binding Title}" Margin="0,-5,0,0"/>
+                                    <Label Text=""/>
+
+                                    <Label Text="Категория: "  FontAttributes="Bold"/>
+                                    <Label Text="{Binding Category}" />
+                                </StackLayout>
+                                <StackLayout WidthRequest="150">
+                                    <Image Source="{Binding Image}"/>
                                 </StackLayout>
                             </StackLayout>
 
                             
                             <StackLayout Orientation="Horizontal" >
 
-                                <Button HeightRequest="50" WidthRequest="150" Text="Редактировать" 
-                                    Clicked="RedactorClick"/>
+                                <Button HeightRequest="50" Text="Редактировать"
+                                        TextColor="#F5E8C7"
+                                        WidthRequest="150" 
+                                    Clicked="RedactorClick"
+                                        BackgroundColor="#363062"/>
                             <Button 
-                                Text="Удалить" HeightRequest="50" WidthRequest="100"  Clicked="DeleteClick"/>
+                                Text="Удалить" HeightRequest="50" 
+                                TextColor="#F5E8C7"
+                                WidthRequest="100"  
+                                BackgroundColor="#363062"
+                                Clicked="DeleteClick"/>
                             </StackLayout>
                     </StackLayout>
                 </DataTemplate>

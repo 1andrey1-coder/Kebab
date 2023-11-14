@@ -1,4 +1,4 @@
-﻿
+﻿using Kebab.Models;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace Kebab
+namespace Kebab.Tools
 {
-    public class DB:DbContext
+    public class DB : DbContext
     {
 
         private string _filePath;
