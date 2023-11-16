@@ -5,7 +5,7 @@
        xmlns:viewmodel="clr-namespace:Kebab.ViewModels"
        x:Class="Kebab.XAML.MainShell"
        
-        BackgroundColor="#455A64"
+        BackgroundColor="#363062"
        ForegroundColor="White"
        TitleColor="White"
        DisabledColor="#B4FFFFFF"

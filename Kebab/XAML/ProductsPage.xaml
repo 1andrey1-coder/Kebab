@@ -42,8 +42,8 @@
                                     <Label Text="Категория: "  FontAttributes="Bold" TextColor="#363062"/>
                                     <Label Text="{Binding Category}"  TextColor="#435585" />
                                 </StackLayout>
-                                <StackLayout WidthRequest="150"  VerticalOptions="Center">
-                                    <Image Source="{Binding Image}" />
+                                <StackLayout WidthRequest="150"  VerticalOptions="Center" >
+                                    <Image Source="{Binding Image}"  />
                                 </StackLayout>
                             </StackLayout>
 
