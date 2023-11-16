@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kebab.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,15 +17,11 @@ namespace Kebab.XAML
         {
             InitializeComponent();
         }
-
-        private void SaveMan(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-
+            ((ManView)BindingContext).OnAppearing();
         }
 
-        private void DeleteMan(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

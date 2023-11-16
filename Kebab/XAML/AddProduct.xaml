@@ -1,27 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-              
-             x:Class="Kebab.XAML.AddProduct">
+             xmlns:viewmodel="clr-namespace:Kebab.ViewModels"
+             x:Class="Kebab.XAML.AddProduct"
+              BindingContext="{DynamicResource viewModel}">
 
-
+    <ContentPage.Resources>
+        <viewmodel:AddView x:Key="viewModel"/>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout>
-         
-             <StackLayout x:Name="ProductsCollection">
-                 <Label Text="Название" Margin="4" FontAttributes="Bold"/>
-                     <Entry x:Name="NameField" Text="{Binding Name}" />
+        <StackLayout >
+                 <StackLayout x:Name="ProductsCollection">
+                     <Label Text="Название" Margin="4" FontAttributes="Bold"/>
+                     <Entry  Text="{Binding SelectedProduct.Name}" />
                      <Label Text="Описание" Margin="4" FontAttributes="Bold"/>
-                     <Editor x:Name="TitleField" Text="{Binding Title}" HeightRequest="100" />
+                     <Editor  Text="{Binding SelectedProduct.Title}" HeightRequest="100" />
 
                      <Label Text="Сcылка на изображение" Margin="4" FontAttributes="Bold"/>
-                     <Editor x:Name="ImageField" Text="{Binding Image}" Placeholder="https://..."  />
-                     <Button Text="Сохранить" Clicked="SaveProduct" />
-                     <Button Text="Удалить" Clicked="DeleteProduct" />
-             </StackLayout>
+                     <Editor  Text="{Binding SelectedProduct.Image}" Placeholder="https://..."  />
+                     <Button Text="Сохранить" Command="{Binding AddProductCommand}" />
+                <Button Text="Удалить" Command="{Binding RemoveProductCommand}" 
+                        CommandParameter="{Binding SelectedProduct}" />
+                  </StackLayout>
                
               
+                       
+             
             <!--  <ScrollView>
                 <StackLayout x:Name="ProductsCollection">
 

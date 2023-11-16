@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Kebab.ViewModels;
 using Kebab.XAML;
 using Xamarin.Forms;
 
@@ -13,10 +14,13 @@ namespace Kebab.XAML
     {
         public MainShell()
         {
-
             InitializeComponent();
             //Routing.RegisterRoute("",typeof(MainShell));
         }
-        
+
+        protected override void OnAppearing()
+        {
+            ((MainView)BindingContext).OnAppearing();
+        }
     }
 }
