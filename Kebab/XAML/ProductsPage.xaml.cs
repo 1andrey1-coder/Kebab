@@ -25,5 +25,16 @@ namespace Kebab.XAML
         {
             ((ProductView)BindingContext).OnAppearing();
         }
+
+        private void OnDeleteSwipeItemInvoked(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void PerehodAddProduct(object sender, EventArgs e)
+        {
+            XAML.AddProduct addProduct = (XAML.AddProduct)BindingContext;
+            await Navigation.PushModalAsync(addProduct);
+        }
     }
 }

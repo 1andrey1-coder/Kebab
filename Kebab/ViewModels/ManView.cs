@@ -8,7 +8,7 @@ namespace Kebab.ViewModels
     {
         public void OnAppearing()
         {
-            throw new NotImplementedException();
+            
         }
 
         private void SaveMan(object sender, EventArgs e)
