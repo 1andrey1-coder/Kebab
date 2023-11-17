@@ -1,6 +1,7 @@
 ﻿using Kebab.Models;
 using Kebab.Tools;
 using Kebab.XAML;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -51,5 +52,14 @@ namespace Kebab.ViewModels
 
 
         }
+        private async void OnDeleteSwipeItemInvoked(object sender, EventArgs e)
+        {
+            SwipeItem swipeItem = (SwipeItem)sender;
+            Product product = (Product)swipeItem.BindingContext;
+            App.Db.Products.Remove(product);
+            SignalChanged(nameof(Products));
+            App.Db.SaveChanges();
+        }
+      
     }
 }

@@ -5,7 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Kebab.Models;
+using Kebab.Tools;
 using Kebab.ViewModels;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
@@ -18,6 +21,7 @@ namespace Kebab.XAML
         public ProductsPage()
         {
             InitializeComponent();
+            
 
         }
 
@@ -26,15 +30,11 @@ namespace Kebab.XAML
             ((ProductView)BindingContext).OnAppearing();
         }
 
-        private void OnDeleteSwipeItemInvoked(object sender, EventArgs e)
+        private void PerehodAddProduct(object sender, EventArgs e)
         {
 
         }
 
-        private async void PerehodAddProduct(object sender, EventArgs e)
-        {
-            XAML.AddProduct addProduct = (XAML.AddProduct)BindingContext;
-            await Navigation.PushModalAsync(addProduct);
-        }
+       
     }
 }

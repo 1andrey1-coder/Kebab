@@ -42,13 +42,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="img\fistingico.jpg">
+    <None Update="Models\img\fistingico.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="img\ingridico.jpg">
+    <None Update="Models\img\ingridico.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="img\manico.jpg">
+    <None Update="Models\img\manico.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

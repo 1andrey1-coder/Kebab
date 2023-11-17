@@ -13,7 +13,7 @@ using Xamarin.Forms.Xaml;
 namespace Kebab.XAML
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddProduct : ContentPage
+    public partial class AddProduct : ContentPage, INotifyPropertyChanged
     {
         public AddProduct()
         {

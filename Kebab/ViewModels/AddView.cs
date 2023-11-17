@@ -18,6 +18,8 @@ namespace Kebab.ViewModels
         private Product selectedProduct;
 
         public List<Product> List { get; set; }
+        public Models.Product product { get; set; } = new Models.Product();
+
         public Product SelectedProduct
         {
             get => selectedProduct;
@@ -49,9 +51,11 @@ namespace Kebab.ViewModels
             AddProductCommand = new CustomCommand(AddProduct);
 
         }
-        private async void AddProduct()
+
+   
+        private void AddProduct()
         {
-            Product product = new Product();
+            
             App.Db.Add(product);
             App.Db.SaveChanges();
             List = App.Db.Products.ToList();
