@@ -18,7 +18,7 @@ namespace Kebab.XAML
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProductsPage : ContentPage
     {
-        public ProductsPage()
+        public ProductsPage(): base()
         {
             InitializeComponent();
             
@@ -34,7 +34,7 @@ namespace Kebab.XAML
         {
 
         }
-
        
+
     }
 }

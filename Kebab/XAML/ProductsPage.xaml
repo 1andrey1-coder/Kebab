@@ -22,14 +22,16 @@
                                          <SwipeItems>
                                              <SwipeItem Text="Delete"
                                                   BackgroundColor="LightPink"
-                                                  Invoked="OnDeleteSwipeItemInvoked" />
+                                                  Command="{Binding OnDelete,
+                                                  Source={StaticResource viewModel}}"
+                                                  CommandParameter="{Binding .}"     />
                                          </SwipeItems>
                                      </SwipeView.RightItems>
                             <StackLayout Padding="8">
                                        <StackLayout Orientation="Horizontal" BackgroundColor="#F5E8C7" Padding="5"  >
                                           
                                          
-                                           <StackLayout WidthRequest="230" >
+                                           <StackLayout WidthRequest="230" x:Name="edit">
                                                <Label Text="Название: " FontAttributes="Bold" TextColor="#363062" />
                                                <Label Text="{Binding Name}" Margin="0,-5,0,0" TextColor="#435585"/>
 
@@ -50,7 +52,7 @@
 
                                            <Button HeightRequest="50" Text="Редактировать"
                                                    TextColor="#F5E8C7"
-                                                   WidthRequest="150" Clicked="PerehodAddProduct"
+                                                   WidthRequest="150" Command="{Binding EditProduct}" CommandParameter="{Binding edit}"
                                                    BackgroundColor="#363062"/>
                                     
                                        </StackLayout>

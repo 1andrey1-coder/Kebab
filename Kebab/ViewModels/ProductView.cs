@@ -14,8 +14,13 @@ namespace Kebab.ViewModels
 {
     public class ProductView: BaseViewModel
     {
+        public CustomCommand<Product> OnDelete { get; set; }
+        public CustomCommand<Product> EditProduct { get; set; }
+
         private Product selectedProduct;
+
         public List<Product> Products { get; set; }
+
         public Product SelectedProduct
         {
             get => selectedProduct;
@@ -35,31 +40,59 @@ namespace Kebab.ViewModels
 
 
         }
-
-        private void DeleteClick(object sender, EventArgs e)
+       
+        public ProductView()
         {
+            EditProduct = new CustomCommand<Product>(
+                action: async (product) =>
+                {
+                    Product selectedProduct = (Product)SelectedProduct;
+                    ProductsPage productsPage = new ProductsPage();
+                    productsPage.BindingContext = selectedProduct;
+                    
+                },
+                    canExecute: (item) =>
+                    {
+                        return item != null;
+                    }
 
-            if (SelectedProduct != null)
-            {
-                var Del = App.Db.Products.FirstOrDefault(s => s.id == SelectedProduct.id);
-                App.Db.Remove(Del);
-                App.Db.SaveChanges();
-            }
-            //else
-            //{
-            //    DisplayAlert("Ошибка", "Объекта не существует", "OK");
-            //}
+                );
+
+            OnDelete = new CustomCommand<Product>(
+                action: async (product) =>
+                {
+                    App.Db.Products.Remove(product);
+                    App.Db.SaveChanges();
+                    Products = new List<Product>();
+                    Products = App.Db.Products.ToList();
+                    SignalChanged(nameof(Products));
+                    await App.Current.MainPage.DisplayAlert("", "Выполнилась", "Ладно");
+
+                },
+
+                      canExecute: (item) =>
+                      {
+                          return item != null;
+                      }
+
+                );
+
+            Routing.RegisterRoute("matka", typeof(Product));
 
 
         }
-        private async void OnDeleteSwipeItemInvoked(object sender, EventArgs e)
-        {
-            SwipeItem swipeItem = (SwipeItem)sender;
-            Product product = (Product)swipeItem.BindingContext;
-            App.Db.Products.Remove(product);
-            SignalChanged(nameof(Products));
-            App.Db.SaveChanges();
-        }
+
       
+
+
+        //private void OnDeleteSwipeItemInvoked()
+        //{
+        //    SwipeItem swipeItem = (SwipeItem)sender;
+        //    Product product = (Product)swipeItem.BindingContext;
+        //    App.Db.Products.Remove(product);
+        //    SignalChanged(nameof(Products));
+        //    App.Db.SaveChanges();
+        //}
+
     }
 }

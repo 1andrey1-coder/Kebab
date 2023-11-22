@@ -10,7 +10,7 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout >
+        <StackLayout>
                  <StackLayout x:Name="ProductsCollection">
                      <Label Text="Название" Margin="4" FontAttributes="Bold"/>
                      <Entry Text="{Binding SelectedProduct.Name}" />

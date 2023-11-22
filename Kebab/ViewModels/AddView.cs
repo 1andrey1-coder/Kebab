@@ -17,8 +17,7 @@ namespace Kebab.ViewModels
 
         private Product selectedProduct;
 
-        public List<Product> List { get; set; }
-        public Models.Product product { get; set; } = new Models.Product();
+        public List<Product> Products { get; set; }
 
         public Product SelectedProduct
         {
@@ -30,14 +29,14 @@ namespace Kebab.ViewModels
         }
         public AddView()
         {
-            List = App.Db.Products.ToList();
+            Products = App.Db.Products.ToList();
             RemoveProductCommand = new CustomCommand<Product>(
                 action: async (product) =>
                 {
                     App.Db.Products.Remove(product);
                     App.Db.SaveChanges();
-                    List = App.Db.Products.ToList();
-                    SignalChanged(nameof(List));
+                    Products = App.Db.Products.ToList();
+                    SignalChanged(nameof(Products));
                     await App.Current.MainPage.DisplayAlert("", "Выполнилась", "Ладно");
 
                 },
@@ -49,86 +48,20 @@ namespace Kebab.ViewModels
 
                 );
             AddProductCommand = new CustomCommand(AddProduct);
-
+            SelectedProduct = new Product();
         }
 
    
         private void AddProduct()
         {
-            
-            App.Db.Add(product);
+            App.Db.Add(SelectedProduct);
             App.Db.SaveChanges();
-            List = App.Db.Products.ToList();
-            SignalChanged(nameof(List));
+            Products = App.Db.Products.ToList();
+            SignalChanged(nameof(Products));
         }
         public void OnAppearing()
         {
            
-        }
-
-
-
-
-
-
-
-
-
-
-        private async void SaveProduct(object sender, EventArgs e)
-        {
-            //string name = Name.Text.Trim();
-            //string image = ImageField.Text.Trim();
-            //string title = TitleField.Text.Trim();
-
-            ////провекра
-
-            //if (name.Length < 2)
-            //{
-            //    await DisplayAlert("Ошибка", "Name min 2", "OK");
-            //}
-            //else if (image == null)
-            //{
-
-            //}
-            //else if (title.Length < 2)
-            //{
-            //    await DisplayAlert("Ошибка", "Title min 2", "OK");
-            //}
-
-            //Product prod = new Product//все данные и значения аксеса
-            //{
-            //    Name = name,//то что получаем от пользователя
-            //    Image = image,
-
-            //    Title = title,
-
-
-            //};
-
-            //App.Db.Products.Add(prod);
-            //App.Db.SaveChanges();
-            ///* App.Db.SaveProductToDB(prod);*///сохранение в бд
-            //                                  //Очистка после добавления
-            //NameField.Text = "";
-            //ImageField.Text = "";
-            //TitleField.Text = "";
-
-
-        }
-
-       
-        private void DeleteProduct(object sender, EventArgs e)
-        {
-
-            //App.Db.Remove(NameField.Text);
-            //App.Db.Remove(ImageField.Text);
-            //App.Db.Remove(TitleField.Text);
-            //App.Db.SaveChanges();
-            //var product = (Product)BindingContext;
-            //App.Db.Products.Remove(product);
-            //App.Db.SaveChanges();
-            //this.Navigation.PopModalAsync();
         }
     }
 }
