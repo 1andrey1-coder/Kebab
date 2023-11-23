@@ -30,6 +30,7 @@ namespace Kebab.ViewModels
         public AddView()
         {
             Products = App.Db.Products.ToList();
+            Products.Clear();
             RemoveProductCommand = new CustomCommand<Product>(
                 action: async (product) =>
                 {
@@ -37,7 +38,7 @@ namespace Kebab.ViewModels
                     App.Db.SaveChanges();
                     Products = App.Db.Products.ToList();
                     SignalChanged(nameof(Products));
-                    await App.Current.MainPage.DisplayAlert("", "Выполнилась", "Ладно");
+                    await App.Current.MainPage.DisplayAlert("Удаление", "Удалилась", "Ок");
 
                 },
 
@@ -55,9 +56,13 @@ namespace Kebab.ViewModels
         private void AddProduct()
         {
             App.Db.Add(SelectedProduct);
-            App.Db.SaveChanges();
+          
             Products = App.Db.Products.ToList();
             SignalChanged(nameof(Products));
+            App.Db.SaveChanges();
+
+
+
         }
         public void OnAppearing()
         {

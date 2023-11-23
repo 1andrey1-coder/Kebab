@@ -30,10 +30,7 @@ namespace Kebab.XAML
             ((ProductView)BindingContext).OnAppearing();
         }
 
-        private void PerehodAddProduct(object sender, EventArgs e)
-        {
-
-        }
+       
        
 
     }
