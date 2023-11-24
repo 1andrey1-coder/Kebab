@@ -10,18 +10,36 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout>
+
+        <StackLayout BackgroundColor="#d9e1ff">
+            <Frame Padding="5" Margin="5" BackgroundColor="White" CornerRadius="8"  >
                  <StackLayout x:Name="ProductsCollection">
-                     <Label Text="Название" Margin="4" FontAttributes="Bold"/>
+                <Label Text="Название" Margin="4" TextColor="#363062" FontSize="17" FontAttributes="Bold"/>
                      <Entry Text="{Binding SelectedProduct.Name}" />
-                     <Label Text="Описание" Margin="4" FontAttributes="Bold"/>
-                     <Editor  Text="{Binding SelectedProduct.Title}" HeightRequest="100" />
-                        
-                     <Label Text="Сcылка на изображение" Margin="4" FontAttributes="Bold"/>
+
+                <Label Text="Описание" Margin="4"  TextColor="#363062" FontSize="17" FontAttributes="Bold"/>
+                     <Editor  Text="{Binding SelectedProduct.Title}" HeightRequest="100"  />
+
+                <Label Text="Категория" Margin="4"  TextColor="#363062" FontSize="17" FontAttributes="Bold"/>
+                     <Editor  Text="{Binding SelectedProduct.Category}" />
+
+                <Label Text="Сcылка на изображение" Margin="4"  TextColor="#363062" FontSize="17" FontAttributes="Bold"/>
                      <Editor  Text="{Binding SelectedProduct.Image}" Placeholder="https://..."  />
-                     <Button Text="Сохранить" Command="{Binding AddProductCommand}" />
-                     <Button Text="Удалить" Command="{Binding RemoveProductCommand}" 
-                        CommandParameter="{Binding SelectedProduct}" />
+            </StackLayout>
+        </Frame>
+
+        <StackLayout Padding="5">
+                <Button Text="Сохранить" Command="{Binding AddProductCommand}"
+                        
+                        Margin="5"  BackgroundColor="#363062" TextColor="White"
+                        CornerRadius="20" />
+                     
+                <Button Text="Удалить" Command="{Binding RemoveProductCommand}" 
+                        CommandParameter="{Binding SelectedProduct}"
+                        
+                        Margin="5"  BackgroundColor="#363062" 
+                        TextColor="White"  CornerRadius="20" />
+                     
                   </StackLayout>
                
               
