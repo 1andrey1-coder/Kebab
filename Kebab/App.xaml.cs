@@ -34,7 +34,6 @@ namespace Kebab
         public App()
         {
             InitializeComponent();
-
             MainPage = new MainShell();
         }
 

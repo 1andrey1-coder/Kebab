@@ -27,6 +27,17 @@
                                                   CommandParameter="{Binding .}"     />
                                          </SwipeItems>
                                      </SwipeView.RightItems>
+                                     <SwipeView.LeftItems>
+                                          <SwipeItems>
+                                    <SwipeItem  Text="Edit" BackgroundColor="LightGreen"
+                                                Command="{Binding EditProduct,
+                                                Source={StaticResource viewModel}}"
+                                                
+                                                CommandParameter="{Binding .}"/>
+                                               
+                                     </SwipeItems>
+                                             
+                                     </SwipeView.LeftItems>
                             <StackLayout Padding="8">
                                        <StackLayout Orientation="Horizontal" BackgroundColor="#F5E8C7" Padding="5"  >
                                           
@@ -48,14 +59,15 @@
                                        </StackLayout>
 
                                    
-                                       <StackLayout Orientation="Horizontal" >
+                                       <!--<StackLayout Orientation="Horizontal" >
 
                                            <Button HeightRequest="50" Text="Редактировать"
                                                    TextColor="#F5E8C7"
-                                                   WidthRequest="150" Command="{Binding EditProduct}" CommandParameter="{Binding edit}"
+                                                   WidthRequest="150" Command="{Binding EditProduct}" 
+                                                   CommandParameter="{Binding edit}"
                                                    BackgroundColor="#363062"/>
                                     
-                                       </StackLayout>
+                                       </StackLayout>-->
                                      </StackLayout>
                                  </SwipeView>
 

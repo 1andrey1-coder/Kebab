@@ -16,7 +16,6 @@ namespace Kebab.ViewModels
     {
         public CustomCommand<Product> OnDelete { get; set; }
         public CustomCommand<Product> EditProduct { get; set; }
-
         private Product selectedProduct;
 
         public List<Product> Products { get; set; }
@@ -46,10 +45,7 @@ namespace Kebab.ViewModels
             EditProduct = new CustomCommand<Product>(
                 action: async (product) =>
                 {
-                    Product selectedProduct = (Product)SelectedProduct;
-                    ProductsPage productsPage = new ProductsPage();
-                    productsPage.BindingContext = selectedProduct;
-                    
+                    await Shell.Current.GoToAsync($"AddView?DI={product.id}");
                 },
                     canExecute: (item) =>
                     {
@@ -66,7 +62,7 @@ namespace Kebab.ViewModels
                     Products = new List<Product>();
                     Products = App.Db.Products.ToList();
                     SignalChanged(nameof(Products));
-                    await App.Current.MainPage.DisplayAlert("", "Выполнилась", "Ладно");
+                    await App.Current.MainPage.DisplayAlert("", "ИНГРИДИБИС", "Ок");
 
                 },
 

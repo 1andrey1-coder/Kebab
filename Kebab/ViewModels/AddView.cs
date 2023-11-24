@@ -6,12 +6,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 using XamarinSQLiteMVVM.Tools;
 
 namespace Kebab.ViewModels
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    [QueryProperty(nameof(ID), "DI")]
     public class AddView: BaseViewModel
     {
+        private int id;
+
+        public int ID
+        {
+            get => id;
+            set
+            {
+                id = value;
+            }
+        }
         public CustomCommand<Product> RemoveProductCommand { get; set; }
         public CustomCommand AddProductCommand { get; set; }
 

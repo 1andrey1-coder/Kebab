@@ -5,6 +5,7 @@ namespace XamarinSQLiteMVVM.Tools
 {
     public class CustomCommand : ICommand
     {
+
         Action action;
         public CustomCommand(Action action)
         {

@@ -15,7 +15,9 @@ namespace Kebab.XAML
         public MainShell()
         {
             InitializeComponent();
-            //Routing.RegisterRoute("",typeof(MainShell));
+            Routing.RegisterRoute("AddView", typeof(AddProduct));
+
+   
         }
 
         protected override void OnAppearing()

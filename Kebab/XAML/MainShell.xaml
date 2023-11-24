@@ -20,7 +20,7 @@
 
         <ShellContent Title="Добавление"
                           Icon="ingridico.jpg"
-                          Route="ingred" ContentTemplate="{DataTemplate local:AddProduct}"/>
+                          Route="add" ContentTemplate="{DataTemplate local:AddProduct}"/>
         
             
     </FlyoutItem>
