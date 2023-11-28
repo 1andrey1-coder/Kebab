@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinSQLiteMVVM.Tools;
@@ -12,25 +13,36 @@ using XamarinSQLiteMVVM.Tools;
 namespace Kebab.ViewModels
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    [QueryProperty(nameof(ID), "DI")]
+    [QueryProperty(nameof(ProductId), "DI")]
     public class AddView: BaseViewModel
     {
-        private int id;
-
-        public int ID
-        {
-            get => id;
-            set
-            {
-                id = value;
-            }
-        }
-        public CustomCommand<Product> RemoveProductCommand { get; set; }
-        public CustomCommand AddProductCommand { get; set; }
 
         private Product selectedProduct;
 
         public List<Product> Products { get; set; }
+
+        private int productId;
+
+        public int ProductId
+        {
+            get => productId;
+            set
+            {
+                productId = value;
+                if(productId > 0)
+                {
+                   App.Db.Products.FirstOrDefault(s => s.id == productId);
+
+                }
+                else
+                {
+                    return;
+
+                }
+            }
+        }
+        public CustomCommand<Product> RemoveProductCommand { get; set; }
+        public CustomCommand AddProductCommand { get; set; }
 
         public Product SelectedProduct
         {
@@ -73,9 +85,6 @@ namespace Kebab.ViewModels
             Products = App.Db.Products.ToList();
             SignalChanged(nameof(Products));
             App.Db.SaveChanges();
-
-
-
         }
         public void OnAppearing()
         {

@@ -65,15 +65,7 @@
                                     </StackLayout>
                                        </StackLayout>
                                 </Frame>
-                                <!--<StackLayout Orientation="Horizontal" >
-
-                                           <Button HeightRequest="50" Text="Редактировать"
-                                                   TextColor="#F5E8C7"
-                                                   WidthRequest="150" Command="{Binding EditProduct}" 
-                                                   CommandParameter="{Binding edit}"
-                                                   BackgroundColor="#363062"/>
-                                    
-                                       </StackLayout>-->
+                               
                                      </StackLayout>
                                  </SwipeView>
 

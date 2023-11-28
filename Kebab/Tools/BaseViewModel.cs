@@ -7,6 +7,7 @@ namespace Kebab.Tools
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void SignalChanged([CallerMemberName] string prop = null)
