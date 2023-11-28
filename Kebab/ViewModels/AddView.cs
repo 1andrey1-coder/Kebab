@@ -33,6 +33,7 @@ namespace Kebab.ViewModels
                 {
                    App.Db.Products.FirstOrDefault(s => s.id == productId);
 
+
                 }
                 else
                 {
