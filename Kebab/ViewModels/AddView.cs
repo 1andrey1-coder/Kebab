@@ -1,6 +1,7 @@
 ﻿using Kebab.Models;
 using Kebab.Tools;
 using Kebab.XAML;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,9 +32,17 @@ namespace Kebab.ViewModels
                 productId = value;
                 if(productId > 0)
                 {
-                   App.Db.Products.FirstOrDefault(s => s.id == productId);
+                    var product = App.Db.Products.FirstOrDefault(s => s.id == productId);
+                    //idproduct.id = productId;
+                    SelectedProduct =  new Product
+                    {
+                        id = product.id,
+                        Name = product.Name,
+                        Title = product.Title,  
+                        Category = product.Category,
+                        Image = product.Image
 
-
+                    };
                 }
                 else
                 {
@@ -51,6 +60,8 @@ namespace Kebab.ViewModels
             set
             {
                 selectedProduct = value;
+                SignalChanged();
+
             }
         }
         public AddView()
@@ -78,14 +89,24 @@ namespace Kebab.ViewModels
             SelectedProduct = new Product();
         }
 
-   
+        //DbContextOptionsBuilder.EnableSensitiveDataLogging
         private void AddProduct()
         {
-            App.Db.Add(SelectedProduct);
-          
-            Products = App.Db.Products.ToList();
-            SignalChanged(nameof(Products));
-            App.Db.SaveChanges();
+            if (SelectedProduct.id != 0)
+            {
+                
+                App.Db.SaveChanges();
+            }
+            else
+            {
+                App.Db.Add(SelectedProduct);
+
+                Products = App.Db.Products.ToList();
+                SignalChanged(nameof(Products));
+                App.Db.SaveChanges();
+            }
+            
+            
         }
         public void OnAppearing()
         {
