@@ -75,24 +75,19 @@ namespace Kebab.ViewModels
         }
 
         //DbContextOptionsBuilder.EnableSensitiveDataLogging
-        private void AddProduct()
+        private async void AddProduct()
         {
             
             
             var product = App.Db.Products.FirstOrDefault(s => s.id == productId);
-            if (SelectedProduct != null)
+            if (SelectedProduct.id != 0)
             {
                 product.Name = SelectedProduct.Name;
                 product.Title = SelectedProduct.Title;
                 product.Category = SelectedProduct.Category;
                 product.Image = SelectedProduct.Image;
                 App.Db.SaveChanges(); // сохранение изменений в базе данных
-
-
             }
-
-
-
             else
             {
                 App.Db.Add(SelectedProduct);
@@ -101,8 +96,8 @@ namespace Kebab.ViewModels
                 SignalChanged(nameof(Products));
                 App.Db.SaveChanges();
             }
-            
-            
+            await App.Current.MainPage.DisplayAlert("", "Объект добавился во влажного мужика", "Лады");
+
         }
         public void OnAppearing()
         {

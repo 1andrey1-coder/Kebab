@@ -62,7 +62,7 @@ namespace Kebab.ViewModels
                     Products = new List<Product>();
                     Products = App.Db.Products.ToList();
                     SignalChanged(nameof(Products));
-                    await App.Current.MainPage.DisplayAlert("", "ИНГРИДИБИС", "Ок");
+                    await App.Current.MainPage.DisplayAlert("", "ИНГРИДИБИС", "Лады");
 
                 },
 

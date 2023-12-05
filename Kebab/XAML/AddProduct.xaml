@@ -10,7 +10,8 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-
+        <ScrollView VerticalScrollBarVisibility="Default" >
+            
         <StackLayout BackgroundColor="#d9e1ff">
             <Frame Padding="5" Margin="5" BackgroundColor="White" CornerRadius="8"  >
                  <StackLayout x:Name="ProductsCollection">
@@ -23,10 +24,10 @@
                 <Label Text="Категория" Margin="4"  TextColor="#363062" FontSize="17" FontAttributes="Bold"/>
                      <Editor  Text="{Binding SelectedProduct.Category}" />
 
-                <Label Text="Сcылка на изображение" Margin="4"  TextColor="#363062" FontSize="17" FontAttributes="Bold"/>
+                <Label Text="Сcылка на изображение" Margin="4"  TextColor="#363062" FontSize="17"  FontAttributes="Bold"/>
                      <Editor  Text="{Binding SelectedProduct.Image}" Placeholder="https://..."  />
-            </StackLayout>
-        </Frame>
+                 </StackLayout>
+            </Frame>
 
         <StackLayout Padding="5">
                 <Button Text="Сохранить" Command="{Binding AddProductCommand}"
@@ -70,6 +71,7 @@
                 </StackLayout>
             </ScrollView>-->
 
-        </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
