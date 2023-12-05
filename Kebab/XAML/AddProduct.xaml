@@ -30,7 +30,7 @@
             </Frame>
 
         <StackLayout Padding="5">
-                <Button Text="Сохранить" Command="{Binding AddProductCommand}"
+                <Button Text="Сохранить"  Command="{Binding AddProductCommand}"
                         
                         Margin="5"  BackgroundColor="#363062" TextColor="White"
                         CornerRadius="20" />

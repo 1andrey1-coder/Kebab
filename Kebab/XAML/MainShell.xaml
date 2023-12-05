@@ -25,19 +25,14 @@
             
     </FlyoutItem>
     
-    <FlyoutItem Title="Список продуктов">
+    <FlyoutItem Title="Список продуктов(влажные мужики)">
         
         <ShellContent Title="Продукт"
                       Icon="fistingico.jpg"
                       Route="primo" ContentTemplate="{DataTemplate local:ProductsPage}"/>
     </FlyoutItem>
     
-    <FlyoutItem Title="Добавление категорий влажных мужиков">
-        <ShellContent Title="Влажные"
-                      Icon="manico.jpg"
-                      Route="man" ContentTemplate="{DataTemplate local:Man}"/>
-        
-    </FlyoutItem>
+  
 
    <!-- <TabBar>
        
