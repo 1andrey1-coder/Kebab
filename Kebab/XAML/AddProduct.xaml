@@ -34,11 +34,7 @@
                         Margin="5"  BackgroundColor="#363062" TextColor="White"
                         CornerRadius="20" />
                      
-                <Button Text="Удалить" Command="{Binding RemoveProductCommand}" 
-                        CommandParameter="{Binding SelectedProduct}"
-                        
-                        Margin="5"  BackgroundColor="#363062" 
-                        TextColor="White"  CornerRadius="20" />
+               
                      
                   </StackLayout>
                

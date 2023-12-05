@@ -43,6 +43,8 @@ namespace Kebab.ViewModels
                         Image = product.Image
 
                     };
+                  
+
                 }
                 else
                 {
@@ -51,7 +53,6 @@ namespace Kebab.ViewModels
                 }
             }
         }
-        public CustomCommand<Product> RemoveProductCommand { get; set; }
         public CustomCommand AddProductCommand { get; set; }
 
         public Product SelectedProduct
@@ -68,23 +69,7 @@ namespace Kebab.ViewModels
         {
             Products = App.Db.Products.ToList();
             Products.Clear();
-            RemoveProductCommand = new CustomCommand<Product>(
-                action: async (product) =>
-                {
-                    App.Db.Products.Remove(product);
-                    App.Db.SaveChanges();
-                    Products = App.Db.Products.ToList();
-                    SignalChanged(nameof(Products));
-                    await App.Current.MainPage.DisplayAlert("Удаление", "Удалилась", "Ок");
-
-                },
-
-                      canExecute: (item) =>
-                      {
-                          return item != null;
-                      }
-
-                );
+            
             AddProductCommand = new CustomCommand(AddProduct);
             SelectedProduct = new Product();
         }
@@ -92,11 +77,22 @@ namespace Kebab.ViewModels
         //DbContextOptionsBuilder.EnableSensitiveDataLogging
         private void AddProduct()
         {
-            if (SelectedProduct.id != 0)
+            
+            
+            var product = App.Db.Products.FirstOrDefault(s => s.id == productId);
+            if (SelectedProduct != null)
             {
-                
-                App.Db.SaveChanges();
+                product.Name = SelectedProduct.Name;
+                product.Title = SelectedProduct.Title;
+                product.Category = SelectedProduct.Category;
+                product.Image = SelectedProduct.Image;
+                App.Db.SaveChanges(); // сохранение изменений в базе данных
+
+
             }
+
+
+
             else
             {
                 App.Db.Add(SelectedProduct);
@@ -112,5 +108,7 @@ namespace Kebab.ViewModels
         {
            
         }
+
+     
     }
 }
